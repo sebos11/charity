@@ -9,18 +9,18 @@ import javax.persistence.Id;
 public class Institution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String name;
-    String description;
+    private Long id;
+    private String name;
+    private String description;
 
     public Institution() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
