@@ -680,6 +680,7 @@ form .form-group--dropdown .dropdown > div {
   padding: 8px 10px;
   font-size: 1.8rem;
   cursor: pointer;
+
 }
 
 /* line 128, scss/modules/_forms.scss */
@@ -1456,6 +1457,20 @@ header nav ul li:last-of-type {
   margin-top: 25px;
   background-color: #bcbcbc;
 }
+
+/* line 61, scss/modules/homepage-sections/_help.scss */
+.help--slides-items .col1:after {
+  content: "";
+  width: 70%;
+  height: 0px;
+  display: block;
+  position: relative;
+  margin-top: 25px;
+  background-color: #bcbcbc;
+}
+
+
+
 
 /* line 72, scss/modules/homepage-sections/_help.scss */
 .help--slides-items .col:last-child:after {

@@ -52,4 +52,13 @@ public class Institution {
     public void setDonations(Set<Donation> donations) {
         this.donations = donations;
     }
+
+    @Override
+    public String toString() {
+        return "Institution{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+               '}';
+    }
 }

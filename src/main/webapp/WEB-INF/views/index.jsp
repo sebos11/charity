@@ -84,34 +84,61 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
 
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
+
+
+<c:forEach items="${institutions}" var="inst" varStatus="theCount">
+
+            <c:if test="${(theCount.count mod 2) ne 0}">
 
             <li>
                 <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
+                    <div class="title">${institutions[theCount.count - 1].name}</div>
+                    <div class="subtitle">Cel i misja: ${institutions[theCount.count - 1].description}</div>
                 </div>
 
+
+                 <c:if test="${!theCount.last}">
+                <div class="col">
+                    <div class="title">${institutions[theCount.count].name}</div>
+
+                    <div >Cel i misja: ${institutions[theCount.count].description}</div>
+                </div>
+                 </c:if>
+                    <c:if test="${theCount.last}">
+                     <div class="col1">
+                        <div class="title" ></div>
+
+                       <div></div>
+                    </div>
+                    </c:if>
+
+
             </li>
+
+            </c:if>
+</c:forEach>
 
         </ul>
     </div>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <jsp:include page="footer.jsp"/>
 
