@@ -3,8 +3,7 @@ package pl.coderslab.charity.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class Donation {
@@ -13,13 +12,14 @@ public class Donation {
     private Long id;
     private Integer quantity;
 
-    @OneToMany
-    @JoinColumn(name = "id_category")
+    @ManyToMany
+    @JoinTable(name ="donation_category",
+                        joinColumns = {@JoinColumn(name = "donation_id", referencedColumnName = "id")},
+                        inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
     private List<Category> categories = new ArrayList<>();
 
 
-    @OneToOne
-    @JoinColumn(name = "institution_id")
+    @ManyToOne
     private Institution institution;
 
     private String street;
@@ -112,4 +112,16 @@ public class Donation {
         this.pickUpComment = pickUpComment;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Donation donation = (Donation) o;
+        return id.equals(donation.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

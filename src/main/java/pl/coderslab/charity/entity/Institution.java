@@ -1,9 +1,10 @@
 package pl.coderslab.charity.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Institution {
@@ -12,6 +13,10 @@ public class Institution {
     private Long id;
     private String name;
     private String description;
+
+    @OneToMany(mappedBy = "institution")
+    private Set<Donation> donations = new HashSet<>();
+    
 
     public Institution() {
     }
@@ -38,5 +43,13 @@ public class Institution {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Donation> getDonations() {
+        return donations;
+    }
+
+    public void setDonations(Set<Donation> donations) {
+        this.donations = donations;
     }
 }
