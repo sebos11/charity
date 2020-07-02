@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
-
+import java.util.List;
 
 
 @Controller
@@ -23,7 +23,7 @@ public InstitutionController(InstitutionRepository institutionRepository){
 
     @RequestMapping("/inst")
     public String institutionList(Model model){
-        Iterable<Institution> institutions= institutionRepository.findAll();
+        List<Institution> institutions= institutionRepository.findAll();
 
         model.addAttribute("institutions",institutions);
 
